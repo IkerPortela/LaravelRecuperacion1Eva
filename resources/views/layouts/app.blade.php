@@ -81,7 +81,7 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguestexitr
+                        @endguest
                     </ul>
                 </div>
             </div>
