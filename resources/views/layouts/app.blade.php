@@ -15,8 +15,9 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body class="theme-light">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -44,6 +45,12 @@
                     </li>
                     <li class="nav-item {{ request()->routeIs('statuses.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('statuses.index') }}">{{ __('Estados') }}</a>
+                    </li>
+                    <li class="nav-item">
+                    <div class="form-check form-switch position-fixed top-0 end-0 m-3">
+                        <input class="form-check-input" type="checkbox" id="themeSwitch">
+                        <label class="form-check-label" for="themeSwitch">Modo oscuro</label>
+                    </div>
                     </li>
                     </ul>
 
@@ -90,16 +97,16 @@
             @yield('content')
         </main>
     </div>
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="{{ route('departments.index') }}" class="nav-link px-2 text-body-secondary">Departamentos</a></li>
-                <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link px-2 text-body-secondary">Categorias</a></li>
-                <li class="nav-item"><a href="{{ route('incidences.index') }}" class="nav-link px-2 text-body-secondary">Incidencias</a></li>
-                <li class="nav-item"><a href="{{ route('priorities.index') }}" class="nav-link px-2 text-body-secondary">Prioridades</a></li>
-                <li class="nav-item"><a href="{{ route('statuses.index') }}" class="nav-link px-2 text-body-secondary">Estados</a></li>
-            </ul>
-            <p class="text-center text-body-secondary">© 2023 Compañia, S.A</p>
-        </footer>
+        <footer class="footer py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="{{ route('departments.index') }}" class="nav-link px-2 text-body-secondary">Departamentos</a></li>
+            <li class="nav-item"><a href="{{ route('categories.index') }}" class="nav-link px-2 text-body-secondary">Categorias</a></li>
+            <li class="nav-item"><a href="{{ route('incidences.index') }}" class="nav-link px-2 text-body-secondary">Incidencias</a></li>
+            <li class="nav-item"><a href="{{ route('priorities.index') }}" class="nav-link px-2 text-body-secondary">Prioridades</a></li>
+            <li class="nav-item"><a href="{{ route('statuses.index') }}" class="nav-link px-2 text-body-secondary">Estados</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2023 Compañia, S.A</p>
+    </footer>
 </div>
 </body>
 </html>

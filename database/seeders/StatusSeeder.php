@@ -13,23 +13,23 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         DB::table('statuses')->insert([     
-            "name"=>"Muy Alta"
+            "name"=>"Nueva"
         ]);
 
         DB::table('statuses')->insert([     
-            "name"=>"Alta"
+            "name"=>"Aceptada"
         ]);
 
         DB::table('statuses')->insert([     
-            "name"=>"Medio"
+            "name"=>"Confirmada"
         ]);
 
         DB::table('statuses')->insert([     
-            "name"=>"Baja"
+            "name"=>"Resuelta"
         ]);
 
         DB::table('statuses')->insert([     
-            "name"=>"Muy Baja"
+            "name"=>"Cerrada"
         ]);
     }
 }

@@ -13,15 +13,15 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([     
-            "name"=>"Critica"
+            "name"=>"Autenticación"
         ]);
 
         DB::table('categories')->insert([     
-            "name"=>"Imprevista"
+            "name"=>"Filtros"
         ]);
 
         DB::table('categories')->insert([     
-            "name"=>"Menor"
+            "name"=>"Otros"
         ]);
     }
 }

@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $incidences = Incidence::orderBy('created_at', 'desc')->get();
+        $incidences = Incidence::where('user_id',auth()->user()->id)->orderBy('created_at', 'desc')->get();
         return view('home',['incidences' => $incidences]);
     }
 }

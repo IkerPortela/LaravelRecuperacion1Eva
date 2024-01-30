@@ -3,7 +3,10 @@
 @section('content')
     <h1 style="text-align: center">ESTADOS DE INCIDENCIAS</h1>
     <div class="container mx-auto">
-        <table class="table table-bordered table-responsive">
+    @if(count($statuses)=== 0)
+<p>No hay ninguna incidencia</p>
+@else    
+    <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -37,6 +40,7 @@
                 @endforelse
             </tbody>
         </table>
+        @endif
         @auth  
         <div class="d-flex flex-column flex-md-row p-1 gap-1 py-md-1">
             <a class="btn btn-primary" href="{{route('statuses.create')}}" role="button">Crear un nuevo estado</a>

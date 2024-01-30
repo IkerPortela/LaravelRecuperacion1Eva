@@ -3,6 +3,9 @@
 @section('content')
     <h1 style="text-align: center">CATEGORIAS</h1>
     <div class="container mx-auto">
+    @if(count($categories)=== 0)
+<p>No hay ninguna categoria</p>
+        @else
         <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
@@ -37,6 +40,7 @@
                 @endforelse
             </tbody>
         </table>
+        @endif
         @auth  
         <div class="d-flex flex-column flex-md-row p-1 gap-1 py-md-1">
             <a class="btn btn-primary" href="{{route('categories.create')}}" role="button">Crear una nueva categoria</a>

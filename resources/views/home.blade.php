@@ -9,15 +9,10 @@
     </div>
     <h5>Departamento: {{ Auth::user()->department->name }}</h5>
     <h3>Tus incidencias ({{ count($incidences->where('user_id', Auth::user()->id)) }})</h3>
-    <ul>
-        @foreach ($incidences as $incidence)
-            @if($incidence->user_id === Auth::user()->id)
-                <li>
-                    <a href="{{ route('incidences.show', $incidence) }}"> {{ $incidence->title }}</a>.
-                    Escrito el {{ $incidence->created_at }}
-                </li>
-            @endif
-        @endforeach
-</ul>
+    @if(count($incidences->where('user_id', Auth::user()->id))=== 0)
+    <p>No has reportado ninguna incidencia</p>
+    @else
+    @include('layouts.incidenceTable')
+    @endif
 </div>
 @endsection

@@ -1,12 +1,24 @@
 import './bootstrap';
 $(document).ready(function () {
-    // Al hacer clic en el botón, cambiar el tema
-    $("#toggle-theme").click(function () {
-        // Obtener el elemento body
-        var body = $("body");
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        $('body').addClass(savedTheme);
+        $('.navbar').addClass(savedTheme);
+        $('.footer').addClass(savedTheme);
+        $('.footer a').addClass(savedTheme);
+    }
 
-        // Alternar las clases de Bootstrap para cambiar el tema
-        body.toggleClass("bg-light text-dark");
-        body.toggleClass("bg-dark text-light");
+    $('#themeSwitch').change(function () {
+        const theme = $(this).is(':checked') ? 'theme-dark' : 'theme-light';
+        
+        $('body').removeClass('theme-light theme-dark').addClass(theme);
+        localStorage.setItem('theme', theme);
+
+        $('.navbar').removeClass('theme-light theme-dark').addClass(theme);
+
+        $('.footer').removeClass('theme-light theme-dark').addClass(theme);
+
+        $('.footer a').removeClass('theme-light theme-dark').addClass(theme);
     });
 });

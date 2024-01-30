@@ -13,7 +13,7 @@ class PrioritySeeder extends Seeder
     public function run(): void
     {
         DB::table('priorities')->insert([     
-            "name"=>"Mayor",
+            "name"=>"Alta",
             "order"=>"Primero"
         ]);
 
@@ -23,7 +23,7 @@ class PrioritySeeder extends Seeder
         ]);
 
         DB::table('priorities')->insert([     
-            "name"=>"Menor",
+            "name"=>"Baja",
             "order"=>"Tercero"
         ]);
     }

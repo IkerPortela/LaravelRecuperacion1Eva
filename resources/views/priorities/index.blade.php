@@ -3,7 +3,10 @@
 @section('content')
     <h1 style="text-align: center">PRIORIDADES</h1>
     <div class="container mx-auto">
-        <table class="table table-bordered table-responsive">
+    @if(count($priorities)=== 0)
+<p>No hay ninguna incidencia</p>
+@else    
+    <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -44,6 +47,7 @@
                 @endforelse
             </tbody>
         </table>
+        @endif
         @auth  
         <div class="d-flex flex-column flex-md-row p-1 gap-1 py-md-1">
             <a class="btn btn-primary" href="{{route('priorities.create')}}" role="button">Crear una nueva prioridad</a>
