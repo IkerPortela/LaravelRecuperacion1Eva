@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +17,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body class="theme-light">
+<body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -45,12 +45,6 @@
                     </li>
                     <li class="nav-item {{ request()->routeIs('statuses.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('statuses.index') }}">{{ __('Estados') }}</a>
-                    </li>
-                    <li class="nav-item">
-                    <div class="form-check form-switch position-fixed top-0 end-0 m-3">
-                        <input class="form-check-input" type="checkbox" id="themeSwitch">
-                        <label class="form-check-label" for="themeSwitch">Modo oscuro</label>
-                    </div>
                     </li>
                     </ul>
 
@@ -90,6 +84,10 @@
                             </li>
                         @endguest
                     </ul>
+                    <div class="form-check form-switch position-fixed top-0 end-0 m-3">
+                        <input class="form-check-input" type="checkbox" id="themeSwitch">
+                        <label class="form-check-label" for="themeSwitch">Modo oscuro</label>
+                    </div>
                 </div>
             </div>
         </nav>

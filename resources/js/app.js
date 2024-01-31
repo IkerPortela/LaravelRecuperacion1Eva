@@ -1,24 +1,42 @@
 import './bootstrap';
-$(document).ready(function () {
+
+document.addEventListener('DOMContentLoaded', function () {
     const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme) {
-        $('body').addClass(savedTheme);
-        $('.navbar').addClass(savedTheme);
-        $('.footer').addClass(savedTheme);
-        $('.footer a').addClass(savedTheme);
+    const body = document.body;
+    const themeSwitch = document.getElementById('themeSwitch');
+
+    // Verifica si hay un tema almacenado en localStorage y aplícalo
+    if (savedTheme === 'dark') {
+        body.setAttribute('data-bs-theme', 'dark');
+        themeSwitch.checked = true;
+        // Desactiva la transición una vez que se ha aplicado el tema oscuro
+        themeSwitch.classList.add('no-transition');
+    } else {
+        // Si no hay tema oscuro almacenado, asegúrate de que esté en modo claro
+        body.setAttribute('data-bs-theme', 'light');
     }
 
-    $('#themeSwitch').change(function () {
-        const theme = $(this).is(':checked') ? 'theme-dark' : 'theme-light';
-        
-        $('body').removeClass('theme-light theme-dark').addClass(theme);
-        localStorage.setItem('theme', theme);
+    // Muestra el contenido después de aplicar el tema
+    body.style.visibility = 'visible';
 
-        $('.navbar').removeClass('theme-light theme-dark').addClass(theme);
+    // Evento de cambio de interruptor
+    themeSwitch.addEventListener('change', function () {
+        if (themeSwitch.checked) {
+            // Modo oscuro
+            body.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            // Modo claro
+            body.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
 
-        $('.footer').removeClass('theme-light theme-dark').addClass(theme);
+        // Desactiva la transición una vez que se ha cambiado el tema
+        themeSwitch.classList.add('no-transition');
+    });
 
-        $('.footer a').removeClass('theme-light theme-dark').addClass(theme);
+    // Restaura la transición cuando el interruptor recibe el foco nuevamente
+    themeSwitch.addEventListener('focus', function () {
+        themeSwitch.classList.remove('no-transition');
     });
 });

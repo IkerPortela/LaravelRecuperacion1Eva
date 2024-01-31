@@ -55,6 +55,7 @@ class CommentsController extends Controller
     {
         $incidences = Incidence::all();
         $comment->text = $request->text;
+        $comment->used_time = $request->used_time;
         $comment->save();
         return redirect()->route('incidences.show', ['incidence' => $comment->incidence_id]);
     }
